@@ -1,0 +1,18 @@
+{
+    "db":
+    {
+        "user": "mfinnegan"
+        ,"password": "123"
+        ,"server": "localhost"
+        , "database": "salesAppDB"
+    },
+    "ftp":
+    {
+        "fileNameBegin":"custimport_"
+        ,"fileType":".xml"
+        ,"fileDirectoryPath":"../FAKEFTPSERVER/in/",
+        "options":{
+            "encrypt":true
+        }
+    }
+}
