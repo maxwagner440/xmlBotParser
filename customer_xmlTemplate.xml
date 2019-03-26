@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<app name="SalesOptimizer">
+	<apikey key="123"></apikey>
+	<batchimport method="CREATE_OR_UPDATE" entity="SALES_LEAD"></batchimport>
+		<data>
+			<customer>
+				<first_name>Max</first_name>  
+	            <last_name>Wagner</last_name>  
+                <companyid>company 123</companyid>
+                <sales_lead_id>lead x</sales_lead_id>
+	            <addr1>123 Lane Dr.</addr1>
+                <addr2>Apt. 001</addr2>
+                <city>Mentor</city>
+	            <state>Ohio</state> 
+	            <country>USA</country> 
+	            <postal>44060</postal> 
+	            <latitude>123.5323</latitude>  
+	            <longitude>-94.23234</longitude>  
+	            <gender>Female</gender> 
+	            <age>28</age> 
+	            <home_value>1</home_value> 
+	            <income>2</income> 
+	            <marital_status>F'ed in the A</marital_status> 
+	            <children_in_household>17</children_in_household> 
+	            <length_of_residency_yrs>1</length_of_residency_yrs> 
+	            <booking_date>03/22/2019</booking_date> 
+	            <expected_revenue>200</expected_revenue>  
+	            <actual_revenue>199</actual_revenue>  
+	            <expected_margin>100</expected_margin>  
+	            <actual_margin>99</actual_margin>  
+	            <personicx>?</personicx> 
+	            <is_needs_reschedule>0</is_needs_reschedule> 
+	            <version>1</version> 
+	            <race>wet-back</race> 
+			</customer>
+			<customer>
+				<first_name>Phil</first_name>  
+	            <last_name>McCrackin</last_name>  
+                <companyid>company 123</companyid>
+                <sales_lead_id>lead x</sales_lead_id>
+	            <addr1>123 Lane Dr.</addr1>
+                <addr2>Apt. 001</addr2>
+                <city>Columbus</city>
+	            <state>Ohio</state> 
+	            <country>USA</country> 
+	            <postal>44303</postal> 
+	            <latitude>163.5323</latitude>  
+	            <longitude>-92.23234</longitude>  
+	            <gender>Male</gender> 
+	            <age>40</age> 
+	            <home_value>150000</home_value> 
+	            <income>200000</income> 
+	            <marital_status>Single</marital_status> 
+	            <children_in_household>17</children_in_household> 
+	            <length_of_residency_yrs>1</length_of_residency_yrs> 
+	            <booking_date>03/22/2019</booking_date> 
+	            <expected_revenue>200</expected_revenue>  
+	            <actual_revenue>199</actual_revenue>  
+	            <expected_margin>100</expected_margin>  
+	            <actual_margin>99</actual_margin>  
+	            <personicx>?</personicx> 
+	            <is_needs_reschedule>0</is_needs_reschedule> 
+	            <version>1</version> 
+	            <race>black</race> 
+			</customer>
+			<customer>
+				<first_name>Guy</first_name>  
+	            <last_name>Guy</last_name>  
+                <companyid>company 123</companyid>
+                <sales_lead_id>lead x</sales_lead_id>
+	            <addr1>123 Lane Dr.</addr1>
+                <addr2>Apt. 001</addr2>
+                <city>Columbus</city>
+	            <state>Ohio</state> 
+	            <country>USA</country> 
+	            <postal>44303</postal> 
+	            <latitude>163.5323</latitude>  
+	            <longitude>-92.23234</longitude>  
+	            <gender>Male</gender> 
+	            <age>40</age> 
+	            <home_value>150000</home_value> 
+	            <income>200000</income> 
+	            <marital_status>Single</marital_status> 
+	            <children_in_household>17</children_in_household> 
+	            <length_of_residency_yrs>1</length_of_residency_yrs> 
+	            <booking_date>03/22/2019</booking_date> 
+	            <expected_revenue>200</expected_revenue>  
+	            <actual_revenue>199</actual_revenue>  
+	            <expected_margin>100</expected_margin>  
+	            <actual_margin>99</actual_margin>  
+	            <personicx>?</personicx> 
+	            <is_needs_reschedule>0</is_needs_reschedule> 
+	            <version>1</version> 
+	            <race>black</race> 
+			</customer>
+		</data>
+</app>
+    

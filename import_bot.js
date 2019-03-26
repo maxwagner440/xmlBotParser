@@ -5,11 +5,12 @@ const path = require('path');
 const xmlParser = require('xml-js');
 var ftpConfig = {};
 const configFileName = 'config.json'
-var debug = 1
+var debug = 0
 
 
 /*
 TODO:
+0. Uncomment SQL stuffs
 1. Change insertJSONDataIntoSQL SQL statement to reflect actual procedure that will parse the JSON and handle the INSUPD.
 2. Change sqlLoggingFunction to import into correct table in DB
 3. Test importing into DB.
@@ -86,11 +87,27 @@ function accessAndPullFromFTPServerWithCreds(ftpConfig){ //RETURNS FILES IN THE 
     return promise;
 }
 
-function returnJSONObjectProperly(jsonObject, row){
-    return console.log(jsonObject.data)
-    if(jsonObject[row]){
-        
-    }
+function returnJSONObjectProperly(jsonObject){
+    var promise = new Promise((resolve, reject) => {
+        var newArray = [{}]
+        try{
+            //return console.log(jsonObject.data)
+            if(jsonObject){
+
+                for(var i = 0; i < jsonObject.data.length; i++){
+                    for  ( key  in jsonObject.data[i] ){
+                        jsonObject.data[i][key] = jsonObject.data[i][key]._text
+                    }
+                }
+                return resolve(jsonObject)
+            }
+        }
+        catch(err){ //log errors here
+            if(debug==1)console.log(err)
+            return sqlLoggingFunction('Error From NodeBot: ' + err,-1)
+        }
+    })
+    return promise
 }
 
 function readFileAndParseInfoIntoJSON(fileDirPath, fileName){ //READS FILE > BRINGS IN XML > PARSES XML TO JSON > MAPS TO NEW JSON OBJECT
@@ -111,7 +128,9 @@ function readFileAndParseInfoIntoJSON(fileDirPath, fileName){ //READS FILE > BRI
             jsonObjectToReturn.entity = data.batchimport._attributes.entity
             jsonObjectToReturn.fileName = fileName
             returnJSONObjectProperly(jsonObjectToReturn)
-            return resolve(jsonObjectToReturn)
+            .then((jsonObjectProper)=>{
+                return resolve(jsonObjectProper)
+            })
         }
         catch(err){ //log errors here
             if(debug==1)console.log(err)
@@ -122,7 +141,7 @@ function readFileAndParseInfoIntoJSON(fileDirPath, fileName){ //READS FILE > BRI
 }
 
 function insertJSONDataIntoSQL(jsonObject){ //INSERTD INTO DB
-    //console.log(jsonObject)
+    console.log(jsonObject)
     var jsonArray = jsonObject.data
     //console.log(jsonArray)
     //INSERT json data into sql using mssql
@@ -130,8 +149,8 @@ function insertJSONDataIntoSQL(jsonObject){ //INSERTD INTO DB
         try{
             var dbConfig = Object.assign(JSON.parse(fs.readFileSync('config.json')), dbConfig)
             dbConfig = dbConfig.db
-            //console.log(dbConfig)
-            return resolve(1)
+            return resolve(1) //resolving retval from DB
+
             //Use dbConfig to exec statement to import stuffs!
             //RETURN results 0=nothing happened,1=works, -1=failed
             /* if(sql){
